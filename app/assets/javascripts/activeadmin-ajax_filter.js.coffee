@@ -91,7 +91,7 @@ $ ->
                     selectize.addOption item
                     return
               )
-
+          selectize.on('dropdown_open', dropdown);
           if selectedValue
             q = {}
             q[selectedRansack] = selectedValue
