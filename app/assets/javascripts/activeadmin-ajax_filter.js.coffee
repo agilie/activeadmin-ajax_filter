@@ -89,8 +89,10 @@ $ ->
 
             loadOptions(q, (res)->
               if res && res.length
-                selectize.addOption(res[0])
-                selectize.addItem(res[0][valueField])
+                res.forEach (item) ->
+                  selectize.addOption item
+                  selectize.addItem item[valueField]
+                  return
             )
 
           ajaxFields.forEach (field) ->
