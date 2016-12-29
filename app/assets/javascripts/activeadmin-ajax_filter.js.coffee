@@ -82,9 +82,9 @@ $ ->
           selectize = this
           selectedValue = select.data('selected-value')
           selectedRansack = "#{valueField}_eq"
-
+          selectize.clearOptions()
           dropdown = ->
-            if selectize.options.length == 0
+            if Object.keys(selectize.options).length == 0
               loadOptions({}, (res)->
                 if res && res.length
                   res.forEach (item) ->
