@@ -94,7 +94,14 @@ $ ->
                   selectize.addItem item[valueField]
                   return
             )
-
+          else
+            selectize.clearOptions()
+            loadOptions({}, (res)->
+                if res && res.length
+                  res.forEach (item) ->
+                    selectize.addOption item
+                    return
+              )
           ajaxFields.forEach (field) ->
             if !isCircularAjaxSearchLink(selectize.$input.attr('id'), field)
               relatedInput(field).change ->
